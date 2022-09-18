@@ -1,17 +1,17 @@
 services:
   proxy:
-    build: ./proxy
+    build: ./proxy      #todo
     volumes:
       - ./code:/code    #todo
     ports:
       - "8080:8080"
   backend:
-    build: ./backend
+    build: ./backend    #todo
     volumes:
       - ./backend:/backend #todo
     depends_on:
       - "db"
-    environment:
+    environment:         #todo
       POSTGRES_PASSWORD: testpassword12345234jsdbcvu
       POSTGRES_USER: userforpostgres
       POSTGRES_DB: dbforSVQ
