@@ -2,13 +2,13 @@ services:
   proxy:
     build: ./proxy      #todo
     volumes:
-      - ./code:/code    #todo
+      - ../code:/code    #todo
     ports:
       - "8080:8080"
   backend:
     build: ./backend    #todo
     volumes:
-      - ./backend:/backend #todo
+      - ../backend:/backend #todo
     depends_on:
       - "db"
     environment:         #todo
