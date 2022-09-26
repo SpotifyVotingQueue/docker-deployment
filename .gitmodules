@@ -1,0 +1,9 @@
+[submodule "svq-frontend"]
+	path = svq-frontend
+	url = https://github.com/SpotifyVotingQueue/svq-frontend
+[submodule "svq-backend"]
+	path = svq-backend
+	url = https://github.com/SpotifyVotingQueue/svq-backend
+[submodule "svq-database"]
+	path = svq-database
+	url = https://github.com/SpotifyVotingQueue/svq-database
