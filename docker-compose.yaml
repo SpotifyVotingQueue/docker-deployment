@@ -4,23 +4,22 @@ services:
     volumes:   #vmtl copy anstatt volume?
       - ../code:/code    #todo
     ports:
-      - "8080:80"  #anpassen
+      - "80:11111"  #anpassen
   backend:      #gradle + springboot
-    build: ./backend    #todo
-    volumes:
-      - ../backend:/backend #todo
+    build: ./svq-backend    #todo
+    ports:
+      - "8080:8080"
     depends_on:
       - "db"
     environment:         #todo
-      POSTGRES_PASSWORD: testpassword12345234jsdbcvu
-      POSTGRES_USER: userforpostgres
-      POSTGRES_DB: dbforSVQ
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/dbforSVQ
+      SPRING_DATASOURCE_USERNAME: userforpostgres
+      SPRING_DATASOURCE_PASSWORD: testpassword12345234jsdbcvu
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_SPOTIFY_CLIENT-ID: ${OAUTH2_ID:?err}
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_SPOTIFY_CLIENT-SECRET: ${OAUTH2_Secret:?err}
   db:       #init skript um eigens schema erweitern
-    image: "postgres:latest"
-    volumes:
-      - .:/var/lib/postgresql/data
+    build: ./svq-database
     environment:
       POSTGRES_PASSWORD: testpassword12345234jsdbcvu
       POSTGRES_USER: userforpostgres
       POSTGRES_DB: dbforSVQ
-  
