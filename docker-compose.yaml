@@ -4,8 +4,8 @@ services:
     volumes:
       - ../code:/code    #todo
     ports:
-      - "8080:8080"
-  backend:
+      - "8080:80"  #anpassen
+  backend:      #gradle + springboot
     build: ./backend    #todo
     volumes:
       - ../backend:/backend #todo
