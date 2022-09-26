@@ -1,7 +1,7 @@
 services:
   proxy:
     build: ./proxy      #todo
-    volumes:
+    volumes:   #vmtl copy anstatt volume?
       - ../code:/code    #todo
     ports:
       - "8080:80"  #anpassen
@@ -15,7 +15,7 @@ services:
       POSTGRES_PASSWORD: testpassword12345234jsdbcvu
       POSTGRES_USER: userforpostgres
       POSTGRES_DB: dbforSVQ
-  db:
+  db:       #init skript um eigens schema erweitern
     image: "postgres:latest"
     volumes:
       - .:/var/lib/postgresql/data
